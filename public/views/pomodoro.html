@@ -1,0 +1,44 @@
+<div class="container">
+	<form ng-submit="kj()" name="pomodoroForm" rol="form" novalidate ng-disabled="{{true}}">
+		<fieldset ng-disabled="formDisabled">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<label for="cmbGoal">Goal</label>
+					<select class="form-control" ng-model="pomodoro.goal" ng-options="goal.value as goal.description for goal in goals" ng-change="changeGoal()">
+		                <option value=""></option>
+		            </select>
+				</div>
+			</div>
+			<div class="row">&nbsp;</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+					<label for="cmbTask">Task</label>
+					<select class="form-control" ng-model="pomodoro.idTask" id="cmbTask" ng-options="task.value as task.description for task in tasks" ng-change="changeTask()">
+		                <option value=""></option>
+		            </select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<label class="clock">{{pomodoro.timeLabel}}</label>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<div class="row" ng->
+		<div class="col-xs-4 col-sm-2 col-sm-offset-3 text-right">
+			<button class="btn btn-success btn-lg" ng-click="iniciarPomodoro()" ng-disabled="(blockButtons || !(!!pomodoro.goal && !!pomodoro.idTask))">Start</button>
+		</div>
+		<div class="col-xs-4 col-sm-2 text-center">
+			<button class="btn btn-danger btn-lg" ng-click="detenerPomodoro()" ng-disabled="(blockButtons || !(!!pomodoro.goal && !!pomodoro.idTask))">Stop</button>
+		</div>
+		<div class="col-xs-4 col-sm-2 text-left">
+			<button class="btn btn-warning btn-lg" ng-click="resetPomodoro()" ng-disabled="(blockButtons || !(!!pomodoro.goal && !!pomodoro.idTask))">Reset</button>
+		</div>
+	</div>
+	<div class="row" style="padding: 30px; font-size:20px">
+		<div class="col-xs-12 text-center">
+			{{message}}
+		</div>
+	</div>
+</div>

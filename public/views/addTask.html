@@ -1,0 +1,57 @@
+<div class="ngdialog-message">
+    <h3 class="text-center">{{goal.description}}</h3>
+    <div class="">
+        <h4>Set a task</h4>
+    </div>
+    <div class="">&nbsp;</div>
+        <div class="">
+            <form ng-submit="saveTask()" name="taskForm" rol="form" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : taskForm.description.$error.required && !taskForm.description.$pristine }">
+                    <textarea type="text" class="form-control input-sm" id="description" name="description" placeholder="Describe your task" ng-model="taskData.description" required></textarea>
+                    <span ng-show='taskForm.description.$error.required && !taskForm.description.$pristine' class='help-block'>The description is required.</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : (taskForm.startDate.$invalid && !taskForm.startDate.$pristine) || invalidStartDate}">
+                    <label for="startDate">Start date</label>
+                    <input type="date" class="form-control input-sm" id="startDate" name="startDate" ng-model="taskData.startDate" required>
+                    <span ng-show='taskForm.startDate.$invalid && !taskForm.startDate.$pristine' class='help-block'>Enter a valid date</span>
+                    <span ng-show='invalidStartDate' class='help-block'>The start date must be after from today</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : invalidDaysWeek}">
+                    <label>Days per week</label>
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Mon">Mon
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Tue">Tue
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Wed">Wed
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Thu">Thu
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Fri">Fri
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Sat">Sat
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="checkbox" autocomplete="off" ng-model="taskData.daysWeek.Sun">Sun
+                      </label>
+                    </div>
+                    <span ng-show='invalidDaysWeek' class='help-block'>You must choose at least one day</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : taskForm.pomodorosPerDay.$error.required && !taskForm.pomodorosPerDay.$pristine}">
+                    <label for="pomodorosPerDay">Pomodoros per day</label>
+                    <input type="number" class="form-control input-sm" id="pomodorosPerDay" name="pomodorosPerDay" ng-model="taskData.pomodorosPerDay" required>
+                    <span ng-show='taskForm.pomodorosPerDay.$error.required && !taskForm.pomodorosPerDay.$pristine' class='help-block'>Enter a valid due date</span>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="taskForm.$invalid">Save</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=closeThisDialog("Cancel")>Cancel</button>
+            </form>
+        </div>
+        <div>
+    </div>
+</div>

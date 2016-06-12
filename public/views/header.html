@@ -1,0 +1,29 @@
+<div class = 'navbar navbar-inverse'>
+    <div class = 'container'>
+        <div class='container-fluid'>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" ui-sref="app">Get It Done!</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class='nav navbar-nav'>
+                    <li ng-class="{active: stateis('app')}"><a ui-sref="app" data-toggle="collapse" data-target=".navbar-collapse">Home</a></li>
+                    <li ng-class="{active: stateis('app.pomodoro')}"><a ui-sref="app.pomodoro" data-toggle="collapse" data-target=".navbar-collapse">Pomodoro</a></li>
+                    <!--li class=''><a href="#">Configs</a></li>
+                    <li class=''><a href="#">Settings</a></li-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="!loggedIn"><a ng-click="openLogin()" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li ng-if="loggedIn"><a data-toggle="collapse" data-target=".navbar-collapse">{{username}}</a></li>
+                    <li ng-if="loggedIn"><a ng-click="logOut()" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

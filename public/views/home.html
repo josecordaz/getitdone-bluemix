@@ -1,0 +1,140 @@
+<div class='container'>
+   <div class='jumbotron text-center'>
+      <h1>Get it done!</h1>
+      <p>Web and mobile tool to help you to get your goals.</p>
+   </div>
+   <div ng-show="username!==''">
+      <div class="row text-right">
+            <button class="btn btn-sm btn-info" ng-click="showDeleteButtons()" ng-show="goals.length !== 0">
+                {{deleteOption ? 'Hide delete buttons':'Show delete buttons'}}
+            </button>
+      </div>
+      <div class='row goalTitle'>
+         <div class="col-xs-12 text-center">
+            <h3>Goals</h3>
+         </div>
+         <div class="col-xs-12 text-left buttonBlock">
+            <button class="btn btn-sm btn-primary" ng-click="openAddGoal()">Add Goal</button>
+         </div>
+      </div>
+      <ul class="media-list">
+          <li ng-repeat="goal in goals">
+              <div style="background: #EEE; border: 1px solid #BBB;">
+                 <div class="row text-center ">
+                    <div class="col-xs-12 col-sm-6 spaceCols">
+                       <div class="row">
+                          <div class="col-xs-12 spaceLblTxt">
+                             <b>Description</b>
+                          </div>
+                          <div class="col-xs-12">
+                             {{goal.description}}
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 spaceCols">
+                       <div class="row">
+                          <div class="col-xs-12 spaceLblTxt">
+                             <b>Due date</b>
+                          </div>
+                          <div class="col-xs-12">
+                             {{goal.dueDate}}
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="row text-right">
+                    <div class="col-xs-6 text-left">
+                        <button class="btn btn-sm btn-primary" ng-click="openAddTask(goal)">Add Task</button>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <button class="btn btn-sm btn-danger" ng-click="deleteGoal(goal._id)" ng-show="deleteOption">Delete Goal</button>
+                    </div>
+                 </div>
+             </div>
+             <div><!--Task Area-->
+                 <!--div class='row'  ng-show="goal.tasks.length !== 0">
+                    <div class="col-xs-12 text-center">
+                       <h3>Tasks</h3>
+                    </div>
+                 </div>
+                 <div class="taskSeparator" ng-show="goal.tasks.length !== 0"></div-->
+                 <ul class="media-list">
+                    <li ng-repeat="task in goal.tasks">
+                        <div class="row text-center">
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Description</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.description}}
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Start date</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.startDate}}
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Days at week</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.daysWeek}}
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Pomodoros per day</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.pomodorosPerDay}}
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                         <div class="row text-center">
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Worked pomodoros</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.workedPomodoros.length}}
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 spaceCols">
+                               <div class="row">
+                                  <div class="col-xs-12 spaceLblTxt">
+                                     <b>Hours worked</b>
+                                  </div>
+                                  <div class="col-xs-12">
+                                     {{task.hoursWorded}}
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-sm-offset-3 spaceCols">
+                                <button class="btn btn-sm btn-danger" ng-click="deleteTask(goal._id,task._id)" ng-show="deleteOption">Delete Task</button>
+                            </div>
+                         </div>
+                        <div class="taskSeparator"></div>
+                    </li>
+                  </ul>
+              </div>
+              <div>&nbsp;</div>
+              <div>&nbsp;</div>
+              <div>&nbsp;</div>
+          </li>
+        </ul>
+   </div>
+</div>

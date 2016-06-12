@@ -1,0 +1,44 @@
+body {
+		font-family: 'Indie Flower'!important;
+		font-size: 20px !important;
+}
+
+.spaceCols {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.spaceLblTxt {
+	padding-bottom: 5px;	
+}
+
+.goalSeparator {
+	border-top: 3px solid black;
+}
+
+.taskSeparator {
+	border-top: 1px solid #BBB;
+}
+
+.goalArea {
+	padding-bottom: 100px;
+}
+
+.goalTitle {
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+.goalBlock {
+	background: #eee;
+}
+
+.buttonBlock {
+	padding-top: 5px;
+	padding-right: 0px;
+}
+
+.clock {
+	font-size: 70px;
+	padding: 30px;
+}

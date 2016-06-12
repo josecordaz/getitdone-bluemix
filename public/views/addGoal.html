@@ -1,0 +1,24 @@
+<div class="ngdialog-message">
+    <div class="">
+        <h3>Set a goal</h3>
+    </div>
+    <div class="">&nbsp;</div>
+        <div class="">
+            <form ng-submit="saveGoal()" name="goalForm" rol="form" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : goalForm.description.$error.required && !goalForm.description.$pristine }">
+                    <textarea type="text" class="form-control input-sm" id="description" name="description" placeholder="Describe your goal" ng-model="goalData.description" required></textarea>
+                    <span ng-show='goalForm.description.$error.required && !goalForm.description.$pristine' class='help-block'>The description is required.</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : (goalForm.dueDate.$invalid && !goalForm.dueDate.$pristine) || invalidDueDate}">
+                    <label class="sr-only" for="dueDate">Due date</label>
+                    <input type="date" class="form-control input-sm" id="dueDate" name="dueDate" placeholder="dueDate" ng-model="goalData.dueDate" required>
+                    <span ng-show='goalForm.dueDate.$invalid && !goalForm.dueDate.$pristine' class='help-block'>Enter a valid due date</span>
+                    <span ng-show='invalidDueDate' class='help-block'>The due date must be afterwards from today</span>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm" ng-disabled="goalForm.$invalid">Save</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=closeThisDialog("Cancel")>Cancel</button>
+            </form>
+        </div>
+        <div>
+    </div>
+</div>
