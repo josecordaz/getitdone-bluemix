@@ -8,34 +8,50 @@
 
 		<!-- build:css styles/main.css -->
 		<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-		<link href="/styles/mystyles.css" rel="stylesheet">
-		<link href="/styles/bootstrap.min.css" rel="stylesheet">
-		<link href="/styles/bootstrap-theme.min.css" rel="stylesheet">
-	    <link href="/styles/font-awesome.min.css" rel="stylesheet">
-	    <link href="/styles/ngDialog.min.css" rel="stylesheet">
-	    <link href="/styles/ngDialog-theme-plain.min.css" rel="stylesheet">
-	    <link href="/styles/ngDialog-theme-default.min.css" rel="stylesheet">
-		<!-- endbuild -->
+		<link href="styles/mystyles.css" rel="stylesheet">
+		<link href="styles/bootstrap.min.css" rel="stylesheet">
+		<link href="styles/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="styles/font-awesome.min.css" rel="stylesheet">
+	    <link href="styles/ngDialog.min.css" rel="stylesheet">
+	    <link href="styles/ngDialog-theme-plain.min.css" rel="stylesheet">
+	    <link href="styles/ngDialog-theme-default.min.css" rel="stylesheet">
+	    <style type="text/css">
+			html, body {
+			    height: 100%;
+			}
+			.page-wrap {
+			  	min-height: 100%;
+			    margin-bottom: -60px; 
+			}
+			.page-wrap:after {
+			  content: "";
+			  display: block;
+			}
+			.site-footer, .page-wrap:after {
+			    height: 60px; 
+			}
+	    </style>
 	</head>
 	<body>
+
+	<div class="page-wrap">
 		<div ui-view="header"></div>
-	    <div ui-view="content"></div>
+    	<div ui-view="content"></div>     
+	</div>
 
-		
-		
-
-		<!-- build:js scripts/main.js -->
-		<script src="/scripts/moment.js"></script>
-		<script src="/scripts/jquery.min.js"></script>
-		<script src="/scripts/bootstrap.min.js"></script>
-		<script src="/scripts/angular.min.js"></script>
-	    <script src="/scripts/angular-ui-router.min.js"></script>
-	    <script src="/scripts/angular-resource.min.js"></script>
-	    <script src="/scripts/app.js"></script>
-	    <script src="/scripts/controllers.js"></script>
-	    <script src="/scripts/services.js"></script>
-	   	<script src="/scripts/ngDialog.min.js"></script>
-		<!-- endbuild -->
+	<div ui-view="footer"></div>
+	<!-- build:js scripts/main.js -->
+	<script src="scripts/moment.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-ui-router.min.js"></script>
+    <script src="scripts/angular-resource.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/services.js"></script>
+   	<script src="scripts/ngDialog.min.js"></script>
+	<!-- endbuild -->
 
 	</body>
 </html>

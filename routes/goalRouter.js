@@ -35,7 +35,7 @@ router.route('/')
 });
 //post = update
 router.route('/:goalId/tasks/:taskId')
-.post(function (req, res, next) {
+.post(Verify.verifyOrdinaryUser,function (req, res, next) {
   Goal.findById(req.params.goalId, function (err, goal) {
     if (err) next(err);
     goal.tasks.push(req.body);
@@ -45,7 +45,7 @@ router.route('/:goalId/tasks/:taskId')
         res.json(goal);
       });
     });
-}).delete(function(req,res,next){
+}).delete(Verify.verifyOrdinaryUser,function(req,res,next){
   Goal.findById(req.params.goalId, function (err, goal) {
     if (err) next(err);
     var tasks = goal.tasks;
@@ -66,7 +66,7 @@ router.route('/:goalId/tasks/:taskId')
 });
 
 router.route('/:goalId/tasks/:taskId/pomodoro/:idPomodoro')
-.post(function (req, res, next) {
+.post(Verify.verifyOrdinaryUser,function (req, res, next) {
     Goal.findById(req.params.goalId, function (err, goal) {
         if (err) next(err);
         goal.tasks = goal.tasks.map(task=>{

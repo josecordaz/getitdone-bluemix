@@ -426,8 +426,8 @@ angular.module('getItDoneApp')
     $scope.blockButtons = false;
 
     $scope.break = {
-        timeLabel: /*moment(new Date('2016-06-11T00:05:00.000Z')).format('mm:ss'),*/moment(new Date('2016-06-11T00:00:05.000Z')).format('mm:ss'),
-        time: /*moment(new Date('2016-06-11T00:05:00.000Z'))*/moment(new Date('2016-06-11T00:00:05.000Z'))
+        timeLabel: moment(new Date('2016-06-11T00:05:00.000Z')).format('mm:ss'),/*moment(new Date('2016-06-11T00:00:05.000Z')).format('mm:ss'),*/
+        time: moment(new Date('2016-06-11T00:05:00.000Z'))/*moment(new Date('2016-06-11T00:00:05.000Z'))*/
     };
 
     $scope.goal = "";
@@ -436,8 +436,8 @@ angular.module('getItDoneApp')
     $scope.pomodoro = {
         goal:"",
         idTask:"",
-        timeLabel: /*moment(new Date('2016-06-11T00:25:00.000Z')).format('mm:ss'),*/moment(new Date('2016-06-11T00:00:25.000Z')).format('mm:ss'),
-        time: /*moment(new Date('2016-06-11T00:25:00.000Z'))*/moment(new Date('2016-06-11T00:00:25.000Z'))
+        timeLabel: moment(new Date('2016-06-11T00:25:00.000Z')).format('mm:ss'),/*moment(new Date('2016-06-11T00:00:25.000Z')).format('mm:ss'),*/
+        time: moment(new Date('2016-06-11T00:25:00.000Z'))/*moment(new Date('2016-06-11T00:00:25.000Z'))*/
     };
 
     $rootScope.$broadcast('updateGoals',function(){
@@ -480,9 +480,10 @@ angular.module('getItDoneApp')
     var contador = 0;
     $scope.iniciarPomodoro = function(){    
         $scope.formDisabled = true;
-        //var tiempo = 1500;
-        var tiempo = 25;
-        var tiempoBreak = 5;
+        var tiempo = 1500;
+        var tiempoBreak = 300;
+        //var tiempo = 25;
+        //var tiempoBreak = 5;
         reloj = $interval(function(){
             $scope.pomodoro.timeLabel =  moment($scope.pomodoro.time).subtract(++contador,'seconds').format('mm:ss');
             if(contador === tiempo){
